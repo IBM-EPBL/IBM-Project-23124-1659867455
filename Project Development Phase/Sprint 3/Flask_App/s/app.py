@@ -5,17 +5,18 @@ Created on Thu Nov 10 09:42:22 2022
 @author: achu6
 """
 
-
-
+import numpy as np
 import tensorflow as tf
 from flask import Flask, render_template, request, url_for, redirect
+from PIL import Image
 from tensorflow import keras
 from keras.models import load_model
-import numpy as np
 from tkinter import *
 import tkinter as tk
 import win32gui
-from PIL import Image,ImageGrab, ImageOps
+from PIL import ImageGrab, ImageOps
+import numpy as np
+
 #load the model
 model=load_model('models/mnistCNN1.h5') 
 
@@ -29,7 +30,7 @@ def index():
 #external github link from navbar
 @app.route('/redirect_to')
 def redirect_to():
-    return redirect("https://github.com/IBM-EPBL/IBM-Project-23124-1659867455")
+    return redirect("https://github.com/IBM-EPBL/IBM-Project-42343-1660660246/tree/main/Project%20Development%20Phase/Sprint%203")
 
 #upload image web.html page
 @app.route('/web',methods=['GET','POST'])
@@ -102,7 +103,7 @@ def draw():
 
     app = App()
     mainloop()
-    return redirect("web")
+
 
 if __name__ == '__main__':
     app.run(debug=True)
