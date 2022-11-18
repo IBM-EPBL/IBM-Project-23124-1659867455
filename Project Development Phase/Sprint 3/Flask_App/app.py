@@ -71,7 +71,7 @@ def draw():
             # Creating elements
             self.canvas = tk.Canvas(self, width=300, height=300, bg = "white", cursor="cross")
             self.label = tk.Label(self, text="Thinking..", font=("Helvetica", 48))
-            self.classify_btn = tk.Button(self, text = "Recognise", command =         self.classify_handwriting) 
+            self.classify_btn = tk.Button(self, text = "Recognise", command =  self.classify_handwriting) 
             self.button_clear = tk.Button(self, text = "Clear", command = self.clear_all)
 
             # Grid structure
