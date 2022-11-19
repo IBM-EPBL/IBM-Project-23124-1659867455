@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <title>Digit Recognition</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/sd.png">
+</head>
+
+<body>
+
+    <!-- Navigation bar -->
+    <div id="navbar"> 
+      <a href="https://github.com/IBM-EPBL/IBM-Project-23124-1659867455" target="_blank">Github</a>
+      <a href="{{url_for('draw')}}">Draw</a>
+      <a href="{{url_for('web')}}">Recognize</a>
+      <a href="{{url_for('index')}}">Home</a>
+    </div> 
+
+    <!-- Main body -->
+    <div class="hero">
+        <h1 class="mainhead">Handwritten Digit Recognition System</h1>
+        <p class="ptext">The need for a handwritten digit recognition system is very much prevalent. A deep learning model is developed to aid this process. We use MNIST dataset, that contains over 70,000 images of handwritten digits. A CNN based model is trained and tested using Keras. <br><br><br>Click on the recognize button, to navigate to a new page, where you may upload the image of a handwritten digit. The predicted result is shown. The accuracy of our model is approximately 98%.</p>
+        <button type="button" class="btn btn-secondary btn-lg btn-block mybtn"><a href="{{url_for('web')}}" class="button-link">Recognize</a></button>
+    </div>
+    
+</body>
+
+
+</html>

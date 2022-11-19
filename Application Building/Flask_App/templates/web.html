@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="../static/style.css">
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+    crossorigin="anonymous"
+    />
+
+    <title>Recognize</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/sd.png">
+</head>
+
+
+
+<script>
+
+    // To display the uploaded image
+    function preview() {
+        frame.src=URL.createObjectURL(event.target.files[0]);
+    }
+    
+    // To display the answer image
+    function disp() {
+        if ("{{ dispimg }}" == "True") {
+            let frame = document.getElementById("frame");
+            var urlname = JSON.parse('{{ prediction |default("")| tojson }}');
+            frame.src = "../static/images/" + urlname + ".png";
+        }
+        
+    }
+
+  
+</script>
+
+<body onload="disp()">
+
+    <!-- Navigation bar -->
+    <div id="navbar"> 
+        <a href="https://github.com/IBM-EPBL/IBM-Project-23124-1659867455" target="_blank">Github</a>
+        <a href="{{url_for('draw')}}">Draw</a>
+        <a href="{{url_for('web')}}">Recognize</a>
+        <a href="{{url_for('index')}}">Home</a>
+    </div> 
+
+    <!-- Main body -->
+    <div class="hero-web">
+        <div class="choose">
+            <form action="/web" method="POST" enctype="multipart/form-data">
+                <h3 class="upload">Handwritten Digit Recognition</h3>
+                <input name="imgfile" id="image" type="file" accept="image/png, image/jpeg" onchange="preview()"  style="display:none;"/><br>
+                <label for="image" class="btn btn-secondary mybtn">Upload image</label>
+                <br><br>
+
+                <!-- Frame to display input image -->
+                <img id="frame" src="../static/images/default.jpeg" width="100px" height="100px" />
+                <br><br>
+                
+                <!-- Predict button -->
+                <input type="submit" class="btn btn-secondary" value="Predict"></input>
+            </form>
+        </div>
+
+        <div class="answer">
+            {% if prediction %}
+                <h4 class="answer-text">Predicted digit : {{prediction}}</h4>
+            {% endif %}
+        </div>
+        
+    </div>
+    
+</body>
+</html>
